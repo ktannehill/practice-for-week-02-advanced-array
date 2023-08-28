@@ -28,13 +28,29 @@ console.log(repeatingTranslate("her family flew to France"));   // "herer family
 
 */
 
-let repeatingTranslate = function(sentence) {
-    // Your code here
+let repeatingTranslate = function (sentence) {
+    let words = sentence.split(' ');
+    let newWords = words.map (function(word) {
+        if (word.length < 3) {
+            return word;
+        } else {
+            return translateWord(word);
+        }
+    });
+    return newWords.join(' ');
 };
 
 
 let translateWord = function(word) {
-    // Your code here
+    const vowels = 'aeiou';
+    if (vowels.includes(word[word.length - 1])) {
+        return word + word;
+    }
+    for (let i = word.length - 1; i >= 0; i--) {
+        if (vowels.includes(word[i])) {
+            return word + word.slice(i);
+        }
+    }
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
@@ -43,4 +59,4 @@ try {
     module.exports = repeatingTranslate;
 } catch (e) {
     module.exports = null;
-}
+}

@@ -17,10 +17,31 @@ console.log(hasThreeVowels('go home'));         //  false
 */
 
 let hasThreeVowels = function(string) {
-    // Your code here
+    // establish vowelCount
+    // establish vowels var
+    // establish usedVowels obj
+    // splt str to arr
+    // filter whether char is vowel and is not already used
+        // increment count, change char to used
+    // return if count > 2
+    let char = string.split('');
+    const vowels = 'aeiou';
+    let usedVowels = {
+        a: false,
+        e: false,
+        i: false,
+        o: false,
+        u: false,};
+    let count = 0;
+    let filtered = char.filter(function(char) {
+        if(vowels.includes(char) && !usedVowels[char]) {
+            count ++;
+            usedVowels[char] = true;
+        };
+    });
+    return count > 2;
 };
 
-// Your code here
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
@@ -28,4 +49,4 @@ try {
     module.exports = hasThreeVowels;
 } catch (e) {
     module.exports = null;
-}
+}

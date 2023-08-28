@@ -9,7 +9,6 @@ methods.
 
 Examples:
 
-
 let arr1 = [
   [6, 4],
   [5],
@@ -26,8 +25,16 @@ console.log(twoDimensionalProduct(arr2)); // 88
 */
 
 let twoDimensionalProduct = function(arr) {
-    // Your code here
+  let product = 1;
+  arr.forEach(function(subArr) {
+    let subPro = subArr.reduce(function(acc, n) {
+      return acc *= n;
+    });
+    product *= subPro;
+  });
+  return product;
 };
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
